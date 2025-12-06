@@ -17,6 +17,10 @@ public class MyVector {
     public double getY(){//Геттеры, public для доступа извне
         return this.y;
     }
+    public void setParams(double x, double y){
+        this.x = x;
+        this.y = y;
+    }
     public void matchVector(MyVector a){
         this.x = a.getX();
         this.y = a.getY();

@@ -14,6 +14,13 @@ public class MovingVector extends MyVector{
         super(x,y);
         this.speed = speed;
     }
+
+    @Override
+    public void setParams(double x, double y) {
+        super.setParams(x, y);
+        this.speed = new MyVector(0,0);
+    }
+
     public MyVector getSpeed() {
         return this.speed;
     }
