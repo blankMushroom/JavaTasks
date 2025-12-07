@@ -9,7 +9,7 @@ class OuterClass{
         System.out.println("Static");
     }
     public class InnerClassA{
-        char a = 'a';
+        public char a = 'a';
         {
             int temp = outervariable;
             double temp2 = pi;
@@ -21,26 +21,35 @@ class OuterClass{
         }
     }
     protected class InnerClassB{
-        char b = 'b';
+        private char b = 'b';
         {
             int temp = outervariable;
             double temp2 = pi;
             printInt();
             printStatic();
+        }
+        public void printChar(){
+            System.out.println(b);
         }
     }
     private class InnerClassC{
-        char c = 'c';
+        private char c = 'c';
         {
             int temp = outervariable;
             double temp2 = pi;
             printInt();
             printStatic();
         }
-
+        public void printChar(){
+            System.out.println(c);
+        }
     }
     {
-        InnerClassA.printChar();//Не работает
+        InnerClassC c = new InnerClassC();
+        InnerClassB b = new InnerClassB();
+        char c1 = c.c;//Даже приватные переменные и методы внутренних классов можно использовать во внешнем классе
+        char b1 = b.b;
+        c.printChar();
     }
 }
 public class Main {
@@ -48,6 +57,8 @@ public class Main {
         OuterClass outer = new OuterClass();
         OuterClass.InnerClassA innera = outer.new InnerClassA();//Доступно отовсюду
         OuterClass.InnerClassB innerb = outer.new InnerClassB();//Доступно только из того-же пакета или из потомков класса
+        char b1 = innerb.b;
+        innerb.printChar();//Работает т.к. метод - public
         OuterClass.InnerClassC innerc = outer.new InnerClassC();//Нет Доступа из вне класса
     }
 }
