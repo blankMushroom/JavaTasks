@@ -8,14 +8,14 @@ class MyVector{
     }
     @Override
     public boolean equals(Object o){//метод equals возвращает boolean, принимает Object
-        if (o==this){
+        if (o==this){//если это один и тот-же объект - true
             return true;
         }
-        if(!(o instanceof MyVector)){
+        if(!(o instanceof MyVector)){//если это не вектор - false
             return false;
         }
         MyVector v = (MyVector) o;
-        return Double.compare(x,v.x) == 0 && Double.compare(y,v.y)==0;
+        return Double.compare(x,v.x) == 0 && Double.compare(y,v.y)==0;//сравниваем покоординатно
     }
 }
 public class Main {
