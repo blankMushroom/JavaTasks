@@ -28,8 +28,6 @@ public class Main {
         try(FileOutputStream newfile = new FileOutputStream(newfilepath)){
             int data = 1234;
             newfile.write(data);
-        }catch(FileNotFoundException e){
-            System.out.println("Файл не найден: Убедитесь что правильно указан путь");;
         }catch (IOException e){
             System.out.println("Во время чтения файла произошла ошибка.");
         }
