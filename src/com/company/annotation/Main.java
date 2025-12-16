@@ -1,10 +1,24 @@
 package com.company.annotation;
+/**
+ * Класс A со свойством <b>a</b>.
+ * @author Иванов Александр
+ * @version 0.1
+ */
 class A{
+    /** Поле a */
     int a = 2;
+    /**
+     * Старая Функция печатает a
+     * @see A#a
+     * @deprecated
+     */
     @Deprecated
     public void oldStinkyMethod(){
         System.out.println(a);
     }
+    /**
+     * Новая Функция
+     */
     public void newShinyMethod(){
         System.out.println("cooler " + a);
     }
